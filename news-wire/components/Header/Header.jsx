@@ -1,14 +1,17 @@
 import React from 'react'
+import styles from './Header.module.css'
+import BreakingTicker from './BreakingTicker/BreakingTicker'
+import SocialTab from './SocialTab/SocialTab'
 
 const Header = () => {
-  return (
-    <>
-    <div>Breaking News</div>
-      <div><div>date time</div><div>Social</div></div>
-      <div><div>left quote</div><div>NewsWire</div><div>right quote</div></div>
-      <div>nav menu</div>
-      </>
-  )
+    return (
+        <div className={styles.headerAlignment}>
+            <BreakingTicker />
+            <SocialTab />
+            <div className={styles.siteNameAlignment}><div>left quote</div><div className={styles.siteDescription}><div className={styles.siteName}>NewsWire</div><div className={styles.siteSubName}>News with credibility</div></div><div>right quote</div></div>
+            <div>nav menu</div>
+        </div>
+    )
 }
 
 export default Header

@@ -1,0 +1,32 @@
+
+.headerAlignment {
+    padding: 0 10px;
+}
+
+.siteDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.siteNameAlignment {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.siteName {
+    font-family: 'EB Garamond';
+    font-size: 51px;
+    color: #333333;
+    font-weight: 800;
+}
+
+.siteSubName {
+    font-family: 'Open Sans';
+    color: #191b1d;
+    font-size: 16px;
+    margin: 5px 0 0 0;
+}
