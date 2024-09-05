@@ -1,8 +1,7 @@
+import HeroOtherPreviews from '@/components/NewsPreviews/HeroOtherPreviews/HeroOtherPreviews'
 import React from 'react'
-import styles from './RightWidget.module.css'
-import HeroOtherPreviews from '../../NewsPreviews/HeroOtherPreviews/HeroOtherPreviews'
 
-const RightWidget = () => {
+const LeftHighlights = () => {
     const articles = [{
         title: 'News Article Title',
         body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
@@ -45,10 +44,10 @@ const RightWidget = () => {
     }]
 
   return (
-    <div className={styles.widgetStyle}>
-        {articles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key}/>)}
+    <div>
+        {articles.map((article, key) => <HeroOtherPreviews article={article} key={key}/>)}
     </div>
   )
 }
 
-export default RightWidget
+export default LeftHighlights

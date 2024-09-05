@@ -1,13 +1,21 @@
 import React from 'react'
 import styles from './HeroOtherPreviews.module.css'
 
-const HeroOtherPreviews = () => {
+const HeroOtherPreviews = ({article, widget=false}) => {
+
   return (
-    <div>
-        <h5 className={styles.newsCategory}>Category</h5>
-        <h3 className={styles.newsHeader}>News Title</h3>
-        <h6 className={styles.newsDetails}>details</h6>
-        <p className={styles.newsExcerpt}>Excerpt</p>
+    <div className={styles.newsArticle}>
+        <h5 className={widget? styles.newsCategoryWidget : styles.newsCategory}>{article.categories}</h5>
+        <h3 className={widget? styles.newsHeaderWidget : styles.newsHeader}>{article.title}</h3>
+        <div className={styles.detailsAlignment}>
+            <img className={styles.newsDetailsIcon} src={'/static/img/user.png'} height={widget? 12 : 13} alt='author' title='Author'/>
+            <h6 className={widget? styles.newsDetailsWidget : styles.newsDetails}>{article.author}</h6>
+            <img className={styles.newsDetailsIcon} src={'/static/img/calendar.png'} height={widget? 12 : 13} alt='date' title='Date'/>
+            <h6 className={widget? styles.newsDetailsWidget : styles.newsDetails}>{article.date}</h6>
+            <img className={styles.newsDetailsIcon} src={'/static/img/speech-bubble.png'} height={widget? 12 : 13} alt='comment' title='Comment'/>
+            <h6 className={widget? styles.newsDetailsWidget : styles.newsDetails}>{article.comments}</h6>
+        </div>
+        <p className={styles.newsExcerpt}>{article.body.substring(0,69)}...</p>
     </div>
   )
 }

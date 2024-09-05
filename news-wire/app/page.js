@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import RightWidget from "@/components/Hero/RightWidget/RightWidget";
 import HeroFeature from "@/components/Hero/HeroFeature/HeroFeature";
+import LeftHighlights from "@/components/Hero/LeftHighlights/LeftHighlights";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <Header/>
       <Container className={styles.heroContainerAlignment}>
         <Row>
-          <Col className={styles.heroLeftHighlights}>left highlights</Col>
+          <Col className={styles.heroLeftHighlights}><LeftHighlights/></Col>
           <Col xs={6} className={styles.heroFeatureSection}>
           <HeroFeature/>
             <div>related widget</div></Col>
