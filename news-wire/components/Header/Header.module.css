@@ -1,5 +1,6 @@
 
 .headerAlignment {
+    width: 100%;
     padding: 0 10px;
 }
 
@@ -29,4 +30,21 @@
     color: #191b1d;
     font-size: 16px;
     margin: 5px 0 0 0;
+}
+
+.leftQuote {
+    font-family: 'Roboto Slab';
+    text-align: left;
+    width: 28%;
+}
+
+.rightQuote {
+    font-family: 'Roboto Slab';
+    text-align: right;
+    width: 28%;
+}
+
+.quoteSpeaker {
+    font-weight: 600;
+    margin-top: 10px;
 }

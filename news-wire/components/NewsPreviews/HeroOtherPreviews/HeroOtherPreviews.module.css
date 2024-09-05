@@ -1,0 +1,25 @@
+.newsCategory {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.newsHeader {
+    font-family: 'Roboto Slab';
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.newsDetails 
+{
+    font-family: 'Open Sans';
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.newsExcerpt {
+    font-family: 'Open Sans';
+    font-size: 16px;
+}

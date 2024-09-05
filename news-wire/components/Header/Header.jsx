@@ -9,7 +9,20 @@ const Header = () => {
         <div className={styles.headerAlignment}>
             <BreakingTicker />
             <SocialTab />
-            <div className={styles.siteNameAlignment}><div>left quote</div><div className={styles.siteDescription}><div className={styles.siteName}>NewsWire</div><div className={styles.siteSubName}>News with credibility</div></div><div>right quote</div></div>
+            <div className={styles.siteNameAlignment}>
+                <div className={styles.leftQuote}>
+                    <p>"This is the quote to go on the left hand side of the header section"</p>
+                    <p className={styles.quoteSpeaker}>- Srijit Ghosh</p>
+                </div>
+                <div className={styles.siteDescription}>
+                    <div className={styles.siteName}>NewsWire</div>
+                    <div className={styles.siteSubName}>News with credibility</div>
+                </div>
+                <div className={styles.rightQuote}>
+                    <p>"This is the quote to go on the right hand side of the header section"</p>
+                    <p className={styles.quoteSpeaker}>- Srijit Ghosh</p>
+                </div>
+            </div>
             <Navbar/>
         </div>
     )
