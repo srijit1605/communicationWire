@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import RightWidget from "@/components/Hero/RightWidget/RightWidget";
 import HeroFeature from "@/components/Hero/HeroFeature/HeroFeature";
 import LeftHighlights from "@/components/Hero/LeftHighlights/LeftHighlights";
+import FeatureRelated from "@/components/Hero/HeroFeature/FeatureRelated/FeatureRelated";
 
 export default function Home() {
   return (
@@ -18,7 +19,8 @@ export default function Home() {
           <Col className={styles.heroLeftHighlights}><LeftHighlights/></Col>
           <Col xs={6} className={styles.heroFeatureSection}>
           <HeroFeature/>
-            <div>related widget</div></Col>
+          <FeatureRelated/>  
+          </Col>
           <Col className={styles.rightWidgetAlignment}>
           <RightWidget/>
           </Col>

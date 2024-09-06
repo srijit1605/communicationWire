@@ -25,7 +25,8 @@ const HeroFeature = () => {
         <h6 className={styles.newsDetails}>{article.comments}</h6>
       </div>
       <div className={styles.twoColumn}>
-        <p className={styles.newsExcerpt}>{article.body.substring(0,450)}...</p>
+        <p className={styles.newsExcerpt}>{article.body.substring(0,445)}</p>
+        <p>Read Full article.</p>
       </div>
     </div>
   )

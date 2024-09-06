@@ -7,21 +7,13 @@
   min-height: 100vh;
 }
 
-.heroGridAlignment {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 10px;
-}
-
 .heroContainerAlignment {
   max-width: 100% !important;
   padding: 0 10px;
 }
 
-.heroFeatureAlignment {
-  display: flex;
-  justify-content: space-between;
+.heroFeatureSection {
+  padding: 0 !important;
 }
 
 .heroLeftHighlights {

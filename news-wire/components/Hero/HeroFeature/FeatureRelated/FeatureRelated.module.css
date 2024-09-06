@@ -1,0 +1,11 @@
+.relatedArticleSection {
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.relatedHeader {
+    font-family: 'Roboto Slab';
+    font-size: 26px;
+    border-bottom: 1px solid #e8e8e8;
+}
