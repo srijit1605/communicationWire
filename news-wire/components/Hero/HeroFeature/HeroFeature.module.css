@@ -1,3 +1,61 @@
 .heroFeatureModule {
     padding: 10px;
 }
+
+.featureTitle {
+    font-family: 'Roboto Slab';
+    font-size: 40px;
+    font-weight: 700;
+    margin: 10px 0 16px;
+}
+
+.featureImage {
+    width: 100%;
+}
+
+.newsDetailsIcon {
+    margin: 0 0 8px;
+}
+
+.detailsAlignment {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.newsDetails 
+{
+    font-family: 'Open Sans';
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.newsExcerpt {
+    font-family: 'Open Sans';
+    font-size: 16px;
+}
+
+.featureCategory {
+    font-family: 'Open Sans';
+    font-size: 13px;
+    color: white;
+    background-color: black;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin: 10px 0;
+    width: max-content;
+    padding: 5px 7px;
+}
+
+.newsExcerpt::first-letter {
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+.twoColumn {
+    column-count: 2;
+    column-gap: 10px;
+  }

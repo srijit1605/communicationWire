@@ -1,5 +1,36 @@
 .widgetStyle {
   border: 1px solid #e8e8e8;
   width: 100%;
-  padding: 10px;
+}
+
+.tabButtons {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.tabButton {
+  cursor: pointer;
+  width: 50%;
+  height: 50px;
+  padding: 7px 5px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tabButton:nth-child(odd) {
+  border-right: 1px solid #e8e8e8;
+}
+
+.tabButtonText {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 1.5;
 }

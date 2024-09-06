@@ -2,15 +2,15 @@
     font-family: 'Open Sans';
     font-size: 13px;
     text-transform: uppercase;
-    font-weight: 800;
-    margin: 10px 0;
+    font-weight: 700;
+    margin: 12px 0;
 }
 
 .newsHeader {
     font-family: 'Roboto Slab';
-    font-size: 17px;
-    font-weight: 800;
-    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 15px;
 }
 
 .newsDetails 
@@ -19,6 +19,11 @@
     font-size: 13px;
     text-transform: capitalize;
     font-weight: 500;
+}
+
+.newsArticleWidget {
+    padding: 15px 15px 5px;
+    border-bottom: 1px solid #e8e8e8;
 }
 
 .newsArticle {
@@ -40,14 +45,14 @@
     font-family: 'Open Sans';
     font-size: 12px;
     text-transform: uppercase;
-    font-weight: 800;
-    margin: 10px 0;
+    font-weight: 700;
+    margin: 0 0 10px 0;
 }
 
 .newsHeaderWidget {
     font-family: 'Roboto Slab';
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 700;
     margin: 0 0 10px;
 }
 

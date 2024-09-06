@@ -4,7 +4,7 @@ import styles from './HeroOtherPreviews.module.css'
 const HeroOtherPreviews = ({article, widget=false}) => {
 
   return (
-    <div className={styles.newsArticle}>
+    <div className={widget? styles.newsArticleWidget :styles.newsArticle}>
         <h5 className={widget? styles.newsCategoryWidget : styles.newsCategory}>{article.categories}</h5>
         <h3 className={widget? styles.newsHeaderWidget : styles.newsHeader}>{article.title}</h3>
         <div className={styles.detailsAlignment}>
