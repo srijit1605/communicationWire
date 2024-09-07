@@ -1,5 +1,35 @@
 .articleItem {
+    min-width: 48%;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.articleItem:nth-child(1) {
+    border-right: 1px solid #e8e8e8;
+}
+
+.articleItem:nth-child(3) {
+    border-left: 1px solid #e8e8e8;
+}
+
+.articleTitle {
     font-family: 'Roboto Slab';
     font-size: 19px;
-    min-width: 48%;
+}
+
+.detailsAlignment {
+    display: flex;
+    align-items: center;
+}
+
+.newsDetails 
+{
+    font-family: 'Open Sans';
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.newsDetailsIcon {
+    margin: 0 0 8px;
 }

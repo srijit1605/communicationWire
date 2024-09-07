@@ -11,6 +11,9 @@ import LeftHighlights from "@/components/Hero/LeftHighlights/LeftHighlights";
 import FeatureRelated from "@/components/Hero/HeroFeature/FeatureRelated/FeatureRelated";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import LeftHandWidget from "@/components/LeftHandWidgets/LeftHandWidget";
+import RightHandWidget from "@/components/RightHandWidgets/RightHandWidget";
+import BottomWidget from "@/components/BottomWidgets/BottomWidget";
 
 export default function Home() {
   const [data, setData] = useState('')
@@ -46,11 +49,22 @@ useEffect(() => {
           <RightWidget/>
           </Col>
         </Row>
+
+        <Row>
+          <Col sm={12} md={8} >
+          <LeftHandWidget/>
+          </Col>
+          <Col sm={12} md={4}>
+          <RightHandWidget/>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+          <BottomWidget/>
+          </Col>
+        </Row>
       </Container>
-      <div>
-        <div>left hand widgets section</div>
-        <div>right hand widget</div>
-      </div>
     </div>
   );
 }
