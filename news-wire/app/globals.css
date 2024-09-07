@@ -89,8 +89,8 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+body, div, p, a, h1, h2, h3, h4, h5, h6 {
+  color: #191b1d;
 }
 
 a {

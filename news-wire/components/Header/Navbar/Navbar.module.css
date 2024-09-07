@@ -21,6 +21,11 @@
     font-size: 14px;
 }
 
+.navItemText {
+    text-decoration: none;
+    color: #191b1d;
+}
+
 .searchIcon {
     padding: 7px 10px 6px;
     border-left: 1px solid #e8e8e8;
