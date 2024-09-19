@@ -38,9 +38,12 @@
 .detailsAlignment {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
+.detailsAlignment h6 {
+    margin-right: 10px;
+}
 .newsCategoryWidget {
     font-family: 'Open Sans';
     font-size: 12px;
