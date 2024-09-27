@@ -1,20 +1,19 @@
 .articleItem {
-    min-width: 48%;
+    max-width: 49%;
     min-height: 100px;
     padding: 10px;
+    border-left: 1px solid #e8e8e8;
 }
 
 .articleItem:nth-child(1) {
-    border-right: 1px solid #e8e8e8;
-}
-
-.articleItem:nth-child(3) {
-    border-left: 1px solid #e8e8e8;
+    border-left: 0px solid #e8e8e8;
 }
 
 .articleTitle {
     font-family: 'Roboto Slab';
-    font-size: 19px;
+    font-size: 1.19rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .detailsAlignment {

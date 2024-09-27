@@ -38,3 +38,28 @@
     content: '';
     border-bottom: 2px solid #191b1d;
 }
+
+.spotlightNumber {
+    display: flex;
+    gap: 5px;
+    padding: 15px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.spotlightNumber h2 {
+    font-family: 'Open Sans';
+    font-size: 26px;
+    width: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.spotlightNumber h3 {
+    font-family: 'Roboto Slab';
+    font-size: 18px;
+}
+
+.newsAlignment {
+    display: flex;
+    flex-wrap: wrap;
+}
