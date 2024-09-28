@@ -24,3 +24,7 @@
   margin: 10px 0 !important;
   padding: 0 10px !important;
 }
+
+.rowGutter {
+  margin-bottom: 40px;
+}

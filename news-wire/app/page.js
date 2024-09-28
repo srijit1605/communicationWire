@@ -39,7 +39,7 @@ useEffect(() => {
   return (
     <div className={styles.main}>
       <Container className={styles.heroContainerAlignment}>
-        <Row>
+        <Row className={styles.rowGutter}>
           <Col className={styles.heroLeftHighlights}><LeftHighlights/></Col>
           <Col xs={6} className={styles.heroFeatureSection}>
           <HeroFeature/>
@@ -50,7 +50,7 @@ useEffect(() => {
           </Col>
         </Row>
 
-        <Row>
+        <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
           <LeftHandWidget/>
           </Col>
@@ -59,7 +59,7 @@ useEffect(() => {
           </Col>
         </Row>
 
-        <Row>
+        <Row className={styles.rowGutter}>
           <Col>
           <BottomWidget/>
           </Col>
