@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { getSession, signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
-export default function NewsManager() {
-  // State for the form data
+export default function NewsManager({ session }) {
   const [formData, setFormData] = useState({
     name: '',
     url: '',
@@ -13,11 +14,21 @@ export default function NewsManager() {
     delay: 0,
   });
 
-  // State to manage tasks
   const [tasks, setTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
-  // Handle form input changes
+  // Redirect to login if the user is not authenticated
+  useEffect(() => {
+    if (!session) {
+      router.push('/api/auth/signin');
+    }
+  }, [session]);
+
+  if (!session) {
+    return <p>Redirecting...</p>;
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -26,19 +37,17 @@ export default function NewsManager() {
     }));
   };
 
-  // Handle form submission to create a news entry and then a task
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
     const formattedData = {
       ...formData,
-      categories: formData.categories.split(',').map((cat) => cat.trim()), // Convert string to array
-      tags: formData.tags.split(',').map((tag) => tag.trim()), // Convert string to array
+      categories: formData.categories.split(',').map((cat) => cat.trim()),
+      tags: formData.tags.split(',').map((tag) => tag.trim()),
     };
 
     try {
-      // Step 1: Create the task
       const response = await fetch('/api/createNews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -49,7 +58,6 @@ export default function NewsManager() {
         const data = await response.json();
         console.log('Task created:', data);
         fetchFeeds();
-        // Step 2: After the task is created, fetch the updated task list
         fetchTasks();
       } else {
         console.error('Error creating task');
@@ -61,12 +69,11 @@ export default function NewsManager() {
     }
   };
 
-  // Fetch the list of tasks from the backend
   const fetchTasks = async () => {
     try {
       const response = await fetch('/api/getTasks');
       const data = await response.json();
-    //   setTasks(data);
+      setTasks(data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
     }
@@ -82,13 +89,12 @@ export default function NewsManager() {
     }
   };
 
-  // Handle manual task execution
   const handleExecuteTask = async (taskId) => {
     try {
       const response = await fetch(`/api/executeTask?id=${taskId}`, { method: 'POST' });
       if (response.ok) {
         console.log('Task executed successfully');
-        fetchTasks(); // Refresh task list
+        fetchTasks();
         fetchFeeds();
       } else {
         console.error('Error executing task');
@@ -98,13 +104,12 @@ export default function NewsManager() {
     }
   };
 
-  // Handle task deletion
   const handleDeleteTask = async (taskId) => {
     try {
       const response = await fetch(`/api/deleteTask?id=${taskId}`, { method: 'DELETE' });
       if (response.ok) {
         console.log('Task deleted successfully');
-        fetchTasks(); // Refresh task list
+        fetchTasks();
         fetchFeeds();
       } else {
         console.error('Error deleting task');
@@ -114,7 +119,6 @@ export default function NewsManager() {
     }
   };
 
-  // Fetch tasks when the component mounts
   useEffect(() => {
     fetchTasks();
     fetchFeeds();
@@ -122,7 +126,6 @@ export default function NewsManager() {
 
   return (
     <div>
-      {/* Form for creating task */}
       <form onSubmit={handleSubmit} style={{ marginBottom: '2rem' }}>
         <h2>Create a Task</h2>
         <div>
@@ -162,7 +165,6 @@ export default function NewsManager() {
         </button>
       </form>
 
-      {/* Display the list of tasks */}
       <h2>Task List</h2>
       {tasks.length > 0 ? (
         <ul>
@@ -170,12 +172,11 @@ export default function NewsManager() {
             <li key={task.id}>
               <strong>ID:</strong> {task.id} | <strong>Name:</strong> {task.name} | <strong>Status:</strong> {task.auto_dialer ? 'Scheduled' : 'Unscheduled'} | <strong>Delay:</strong> {task.delay} minutes
               <div>
-                {/* Only show manual execute button for unscheduled tasks */}
                 {!task.auto_dialer && (
                   <button onClick={() => handleExecuteTask(task.id)}>Execute Task</button>
                 )}
                 <button onClick={() => handleDeleteTask(task.id)}>Delete Task</button>
-                <button>Edit Task</button> {/* Placeholder for editing */}
+                <button>Edit Task</button>
               </div>
             </li>
           ))}
@@ -185,4 +186,24 @@ export default function NewsManager() {
       )}
     </div>
   );
+}
+
+// Guard the page using `getServerSideProps` to handle authentication
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/api/auth/signin',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
 }
