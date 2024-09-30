@@ -8,6 +8,7 @@ const LeftHighlights = () => {
         author: 'someone',
         date: 'Sep 5 2024',
         comments: '1',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         categories: 'Technology'
     },
     {
@@ -16,6 +17,7 @@ const LeftHighlights = () => {
         author: 'someone',
         date: 'Sep 5 2024',
         comments: '1',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         categories: 'Technology'
     },
     {
@@ -24,6 +26,7 @@ const LeftHighlights = () => {
         author: 'someone',
         date: 'Sep 5 2024',
         comments: '1',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         categories: 'Technology'
     },
     {
@@ -31,6 +34,7 @@ const LeftHighlights = () => {
         body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
         author: 'someone',
         date: 'Sep 5 2024',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         comments: '1',
         categories: 'Technology'
     },
@@ -39,6 +43,7 @@ const LeftHighlights = () => {
         body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
         author: 'someone',
         date: 'Sep 5 2024',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         comments: '1',
         categories: 'Technology'
     }]
