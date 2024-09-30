@@ -8,12 +8,13 @@ const HeroFeature = () => {
     author: 'someone',
     date: 'Sep 5 2024',
     comments: '1',
-    categories: 'Technology'
+    categories: 'Technology',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg'
   }
 
   return (
     <div className={styles.heroFeatureModule}>
-      <img className={styles.featureImage} src='https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg' alt='writers building' title='writers building' />
+      <img className={styles.featureImage} src={article.img} alt='writers building' title='writers building' />
       <h5 className={styles.featureCategory}>{article.categories}</h5>
       <h2 className={styles.featureTitle}>{article.title}</h2>
       <div className={styles.detailsAlignment}>
