@@ -1,19 +1,18 @@
-"use client";
-
+'use client';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-const page = () => {
-  const { data: session, status } = useSession(); // Add status to check loading state
+export default function LoginPage() {
+  const { data: session, status } = useSession();
   const router = useRouter();
 
-  // Redirect if already logged in
+  // Redirect to dashboard if already logged in
   useEffect(() => {
-    if (status === "authenticated") {
+    if (session) {
       router.push('/dashboard'); // Redirect after login
     }
-  }, [status, router]);
+  }, [session, router]);
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -49,5 +48,3 @@ const page = () => {
     </div>
   );
 }
-
-export default page
