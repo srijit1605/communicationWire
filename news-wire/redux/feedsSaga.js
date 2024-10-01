@@ -1,5 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { createFeedStart, createFeedSuccess, createFeedFailure, fetchFeedsStart, fetchFeedsSuccess, fetchFeedsFailure } from './feedsSlice';
+import { 
+  fetchFeedsStart,
+  fetchFeedsSuccess,
+  fetchFeedsFailure,
+  createFeedStart,
+  createFeedSuccess,
+  createFeedFailure 
+} from './feedsSlice'; // Ensure the path is correct
 import axios from 'axios';
 
 // API URL
@@ -26,6 +33,6 @@ function* createFeed(action) {
 }
 
 export default function* feedsSaga() {
-  yield takeLatest('feeds/fetchFeedsStart', fetchFeeds);
-  yield takeLatest('feeds/createFeedStart', createFeed);
+  yield takeLatest(fetchFeedsStart.type, fetchFeeds);  // Use the correct action type
+  yield takeLatest(createFeedStart.type, createFeed);  // Use the correct action type
 }

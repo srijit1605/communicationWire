@@ -1,9 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { 
-  fetchTasksStart, 
-  fetchTasksSuccess, 
+  fetchTasksStart,
+  fetchTasksSuccess,
   fetchTasksFailure 
-} from './tasksSlice'; // Ensure you have a tasksSlice with these actions
+} from './tasksSlice'; // Ensure the path is correct
 import axios from 'axios';
 
 // API URL
@@ -19,17 +19,6 @@ function* fetchTasks() {
   }
 }
 
-// Uncomment and implement if you want to create feeds in this saga
-// function* createFeed(action) {
-//   try {
-//     yield put(createFeedStart());
-//     const response = yield call(axios.post, `${API_URL}/news_entry/`, action.payload);
-//     yield put(createFeedSuccess(response.data));
-//   } catch (error) {
-//     yield put(createFeedFailure(error.message));
-//   }
-// }
-
 export default function* tasksSaga() {
-  yield takeLatest('tasks/fetchTasksStart', fetchTasks); // Ensure to replace 'feeds' with 'tasks'
+  yield takeLatest(fetchTasksStart.type, fetchTasks); // Use the correct action type
 }
