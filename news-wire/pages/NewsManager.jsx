@@ -7,7 +7,7 @@ export default function NewsManager() {
     url: '',
     news_count: 0,
     auto_dialer: false,
-    author: '',
+    creator: '',
     categories: '',
     tags: '',
     delay: 0,
@@ -16,6 +16,7 @@ export default function NewsManager() {
   // State to manage tasks
   const [tasks, setTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [newsList, setNewsList] = useState()
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -76,7 +77,19 @@ export default function NewsManager() {
     try {
       const response = await fetch('/api/getFeeds');
       const data = await response.json();
-      setTasks(data);
+      const Tasks = data && data.data.map((item, key) => ({
+        id: key,
+        name: "Example News",
+  url: item,
+  news_count: 10,
+  auto_dialer: true,
+  creator: "Author Name",
+  categories: ["Category1", "Category2"],
+  tags: ["Tag1", "Tag2"],
+  delay: 5
+      }))
+      console.log(Tasks)
+      setTasks(Tasks);
     } catch (error) {
       console.error('Error fetching tasks:', error);
     }
@@ -85,14 +98,14 @@ export default function NewsManager() {
   // Handle manual task execution
   const handleExecuteTask = async (taskId) => {
     try {
-      const response = await fetch(`/api/executeTask?id=${taskId}`, { method: 'POST' });
-      if (response.ok) {
-        console.log('Task executed successfully');
-        fetchTasks(); // Refresh task list
-        fetchFeeds();
-      } else {
-        console.error('Error executing task');
-      }
+      // const nodeResponse = await fetch(`/api/executeTask?id=${taskId}`, { method: 'GET' });
+      const response = await fetch(`http://localhost:8000/fetch_feed/${taskId}`, { method: 'GET' });
+      // if (response.ok) {
+        console.log('fetch', JSON.parse(response));
+        setNewsList(JSON.parse(response))
+      // } else {
+      //   console.error('Error executing task');
+      // }
     } catch (error) {
       console.error('Error executing task:', error);
     }
@@ -171,9 +184,9 @@ export default function NewsManager() {
               <strong>ID:</strong> {task.id} | <strong>Name:</strong> {task.name} | <strong>Status:</strong> {task.auto_dialer ? 'Scheduled' : 'Unscheduled'} | <strong>Delay:</strong> {task.delay} minutes
               <div>
                 {/* Only show manual execute button for unscheduled tasks */}
-                {!task.auto_dialer && (
+                {/* {!task.auto_dialer && ( */}
                   <button onClick={() => handleExecuteTask(task.id)}>Execute Task</button>
-                )}
+                {/* )} */}
                 <button onClick={() => handleDeleteTask(task.id)}>Delete Task</button>
                 <button>Edit Task</button> {/* Placeholder for editing */}
               </div>

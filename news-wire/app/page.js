@@ -19,9 +19,9 @@ export default function Home() {
   const [data, setData] = useState('')
   const getData = async() => {
     try {
-    const res = await axios.get('https://api.thenewsapi.com/v1/news/all', {params: {api_token: 'IeVvWwHdWDNuCEucM580XTsBhTzdeIZJKA6Sz550', language:'en', limit:3}})
+    const res = await axios.get('http://localhost:8000/fetch_feed/19')
     console.log('response is:', res.data)
-    setData(res.data)
+    setData(JSON.parse(res.data.data))
   }
   catch(err) {
     console.log(err)
@@ -61,7 +61,7 @@ useEffect(() => {
 
         <Row className={styles.rowGutter}>
           <Col>
-          <BottomWidget/>
+          <BottomWidget articles={data}/>
           </Col>
         </Row>
       </Container>
