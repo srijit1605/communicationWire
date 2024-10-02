@@ -5,53 +5,12 @@ import InternationalNews from './InternationalNews/InternationalNews'
 import NewsCard from './NewsCard/NewsCard'
 import NewsRow from './NewsRow/NewsRow'
 
-const LeftHandWidget = () => {
-  const articles = [{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology'
-}]
-
+const LeftHandWidget = ({articles}) => {
 
   return (
     <div>
-        <SpotlightNews title={'Spotlight News'} articles={articles}/>
-        <SnippetNews/>
+        <SpotlightNews title={'Spotlight News'} articles={articles.slice(0,6)}/>
+        <SnippetNews title={'Mini Updates'} articles={articles.slice(3,9)}/>
         <InternationalNews/>
         <NewsCard/>
         <NewsRow/>

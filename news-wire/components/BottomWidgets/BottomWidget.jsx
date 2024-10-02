@@ -7,9 +7,9 @@ const BottomWidget = ({articles}) => {
 
   return (
     <div>
-        <SnippetNews/>
+        <SnippetNews  title={'Snippet News'} articles={articles.slice(0,4)}/>
         <ImageCard/>
-        <SpotlightNews title={'Local News'} articles={articles}/>
+        <SpotlightNews title={'Local News'} articles={articles.slice(4,9)}/>
     </div>
   )
 }

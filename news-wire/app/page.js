@@ -14,13 +14,24 @@ import { useEffect, useState } from "react";
 import LeftHandWidget from "@/components/LeftHandWidgets/LeftHandWidget";
 import RightHandWidget from "@/components/RightHandWidgets/RightHandWidget";
 import BottomWidget from "@/components/BottomWidgets/BottomWidget";
+import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdownMenu";
 
 export default function Home() {
   const [data, setData] = useState('')
   const getData = async() => {
     try {
-    const res = await axios.get('http://localhost:8000/fetch_feed/19')
+    const res = await axios.get('http://localhost:8000/fetch_feed/10')
     console.log('response is:', res.data)
+    const articleList = JSON.parse(res.data.data).map((item, key) => ({
+      title: item.title,
+      body: item.description,
+      author: 'someone',
+      date: 'Sep 5 2024',
+      comments: '1',
+      img:item.media,
+      categories: 'Technology'
+  }))
+  console.log('articleList', articleList)
     setData(JSON.parse(res.data.data))
   }
   catch(err) {
@@ -38,6 +49,7 @@ useEffect(() => {
   
   return (
     <div className={styles.main}>
+      <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div>
       <Container className={styles.heroContainerAlignment}>
         <Row className={styles.rowGutter}>
           <Col className={styles.heroLeftHighlights}><LeftHighlights/></Col>
@@ -52,10 +64,10 @@ useEffect(() => {
 
         <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
-          <LeftHandWidget/>
+          <LeftHandWidget articles={data}/>
           </Col>
           <Col sm={12} md={4}>
-          <RightHandWidget/>
+          <RightHandWidget articles={data}/>
           </Col>
         </Row>
 

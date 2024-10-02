@@ -9,6 +9,7 @@ const FeatureRelated = () => {
         author: 'someone',
         date: 'Sep 5 2024',
         comments: '1',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         categories: 'Technology'
     },
     {
@@ -17,6 +18,7 @@ const FeatureRelated = () => {
         author: 'someone',
         date: 'Sep 5 2024',
         comments: '1',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         categories: 'Technology'
     },
     {
@@ -25,6 +27,7 @@ const FeatureRelated = () => {
         author: 'someone',
         date: 'Sep 5 2024',
         comments: '1',
+        img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
         categories: 'Technology'
     },
 ]
