@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from './rootReducer'; // Combine feeds and tasks reducers
+import rootReducer from './rootReducer'; 
 import rootSaga from './rootSaga';
 
 // Create the saga middleware

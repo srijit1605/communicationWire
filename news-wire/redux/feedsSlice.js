@@ -26,7 +26,7 @@ const feedsSlice = createSlice({
     },
     createFeedSuccess: (state, action) => {
       state.loading = false;
-      state.feeds.push(action.payload);
+      state.feeds = [...state.feeds, action.payload];
     },
     createFeedFailure: (state, action) => {
       state.loading = false;

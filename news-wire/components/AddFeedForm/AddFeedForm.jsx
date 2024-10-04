@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
@@ -8,54 +8,75 @@ import styles from './AddFeedForm.module.css';
 import { Button, Form } from 'react-bootstrap';
 
 const AddFeedForm = () => {
-  // const dispatch = useDispatch();
-  const [url, setUrl] = useState('');
-  const [name, setName] = useState('');
-  const [newsCount, setNewsCount] = useState(10);
-  const [author, setAuthor] = useState('');
-  const [categories, setCategories] = useState('');
-  const [tags, setTags] = useState('');
-  const [delay, setDelay] = useState(5);
-  const [autoDialer, setAutoDialer] = useState(false);
+  const dispatch = useDispatch();
+  
+  const [formData, setFormData] = useState({
+    url: '',
+    name: '',
+    newsCount: 10,
+    author: '',
+    categories: '',
+    tags: '',
+    delay: 5,
+    autoDialer: false,
+  });
   const [formError, setFormError] = useState('');
+
+  // Handle input changes for each field
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const resetForm = () => {
+    setFormData({
+      url: '',
+      name: '',
+      newsCount: 10,
+      author: '',
+      categories: '',
+      tags: '',
+      delay: 5,
+      autoDialer: false,
+    });
+    setFormError('');
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!url) {
+
+    if (!formData.url) {
       setFormError('Feed URL is required');
       return;
     }
-    setFormError('');
+
     const serialNumber = Math.floor(Math.random() * 1000);
-    const feedName = name || `test name ${serialNumber}`;
-    const categoriesArray = categories.split(',').map((category) => category.trim());
-    const tagsArray = tags.split(',').map((tag) => tag.trim());
+    const feedName = formData.name || `test name ${serialNumber}`;
+    const categoriesArray = formData.categories.split(',').map((category) => category.trim());
+    const tagsArray = formData.tags.split(',').map((tag) => tag.trim());
 
     const newFeed = {
       name: feedName,
-      url,
-      news_count: newsCount || 10,
-      auto_dialer: autoDialer,
-      author,
+      url: formData.url,
+      news_count: formData.newsCount || 10,
+      auto_dialer: formData.autoDialer,
+      author: formData.author,
       categories: categoriesArray,
       tags: tagsArray,
-      delay: delay || 5,
+      delay: formData.delay || 5,
     };
 
-    // dispatch(createFeedStart(newFeed));
-    console.log('newFeed', newFeed)
-    setUrl('');
-    setName('');
-    setNewsCount(10);
-    setAuthor('');
-    setCategories('');
-    setTags('');
-    setDelay(5);
-    setAutoDialer(false);
+    dispatch(createFeedStart(newFeed));
+    console.log('newFeed', newFeed);
+    resetForm();
   };
 
   return (
     <div className={styles.formContainer}>
+      <h2>Add New Feed</h2>
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col>
@@ -63,10 +84,11 @@ const AddFeedForm = () => {
               <Form.Label className={styles.inputLabel}>Feed URL *</Form.Label>
               <Form.Control
                 type="text"
+                name="url"
                 placeholder="Enter feed URL"
-                value={url}
+                value={formData.url}
                 className={styles.inputField}
-                onChange={(e) => setUrl(e.target.value)}
+                onChange={handleChange}
                 required
               />
             </Form.Group>
@@ -76,10 +98,11 @@ const AddFeedForm = () => {
               <Form.Label className={styles.inputLabel}>Name</Form.Label>
               <Form.Control
                 type="text"
+                name="name"
                 placeholder="Enter feed name"
                 className={styles.inputField}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={formData.name}
+                onChange={handleChange}
               />
             </Form.Group>
           </Col>
@@ -91,10 +114,11 @@ const AddFeedForm = () => {
               <Form.Label className={styles.inputLabel}>Author</Form.Label>
               <Form.Control
                 type="text"
+                name="author"
                 placeholder="Enter author name"
                 className={styles.inputField}
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
+                value={formData.author}
+                onChange={handleChange}
               />
             </Form.Group>
           </Col>
@@ -103,9 +127,10 @@ const AddFeedForm = () => {
               <Form.Label className={styles.inputLabel}>News Count</Form.Label>
               <Form.Control
                 type="number"
-                value={newsCount}
+                name="newsCount"
+                value={formData.newsCount}
                 className={styles.inputField}
-                onChange={(e) => setNewsCount(Number(e.target.value))}
+                onChange={handleChange}
                 min="1"
                 defaultValue={10}
               />
@@ -119,10 +144,11 @@ const AddFeedForm = () => {
               <Form.Label className={styles.inputLabel}>Categories</Form.Label>
               <Form.Control
                 type="text"
+                name="categories"
                 placeholder="Enter categories (comma-separated)"
                 className={styles.inputField}
-                value={categories}
-                onChange={(e) => setCategories(e.target.value)}
+                value={formData.categories}
+                onChange={handleChange}
               />
             </Form.Group>
           </Col>
@@ -131,10 +157,11 @@ const AddFeedForm = () => {
               <Form.Label className={styles.inputLabel}>Tags</Form.Label>
               <Form.Control
                 type="text"
+                name="tags"
                 placeholder="Enter tags (comma-separated)"
                 className={styles.inputField}
-                value={tags}
-                onChange={(e) => setTags(e.target.value)}
+                value={formData.tags}
+                onChange={handleChange}
               />
             </Form.Group>
           </Col>
@@ -146,8 +173,9 @@ const AddFeedForm = () => {
               <Form.Label className={styles.inputLabel}>Delay (in minutes)</Form.Label>
               <Form.Control
                 type="number"
-                value={delay}
-                onChange={(e) => setDelay(Number(e.target.value))}
+                name="delay"
+                value={formData.delay}
+                onChange={handleChange}
                 className={styles.inputField}
                 min="1"
                 defaultValue={5}
@@ -158,10 +186,11 @@ const AddFeedForm = () => {
             <Form.Group className="mb-3">
               <Form.Check
                 type="checkbox"
+                name="autoDialer"
                 className={styles.inputLabel}
                 label=" Auto Dialer"
-                checked={autoDialer}
-                onChange={(e) => setAutoDialer(e.target.checked)}
+                checked={formData.autoDialer}
+                onChange={handleChange}
               />
             </Form.Group>
           </Col>
