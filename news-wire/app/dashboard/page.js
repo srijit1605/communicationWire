@@ -1,6 +1,7 @@
 'use client';
 import styles from "@/app/page.module.css";
 import AddFeedForm from '@/components/AddFeedForm/AddFeedForm';
+import Feedlist from "@/components/Feedlist/Feedlist";
 import ProfileDropdownMenu from '@/components/ProfileDropdownMenu/ProfileDropdownMenu';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
@@ -28,7 +29,10 @@ export default function Dashboard() {
       <h1>Welcome to your Dashboard</h1>
       {/* You can display user info here */}
       <p>Logged in as: {session?.user?.email}</p>
+      <div>
+      <Feedlist/>
       <AddFeedForm />
+      </div>
     </div>
   );
 }
