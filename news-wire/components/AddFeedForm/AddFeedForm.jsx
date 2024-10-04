@@ -8,7 +8,7 @@ import styles from './AddFeedForm.module.css';
 import { Button, Form } from 'react-bootstrap';
 
 const AddFeedForm = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [url, setUrl] = useState('');
   const [name, setName] = useState('');
   const [newsCount, setNewsCount] = useState(10);
@@ -25,9 +25,7 @@ const AddFeedForm = () => {
       setFormError('Feed URL is required');
       return;
     }
-
     setFormError('');
-
     const serialNumber = Math.floor(Math.random() * 1000);
     const feedName = name || `test name ${serialNumber}`;
     const categoriesArray = categories.split(',').map((category) => category.trim());
@@ -44,9 +42,8 @@ const AddFeedForm = () => {
       delay: delay || 5,
     };
 
-    dispatch(createFeedStart(newFeed));
+    // dispatch(createFeedStart(newFeed));
     console.log('newFeed', newFeed)
-    // Reset the form fields
     setUrl('');
     setName('');
     setNewsCount(10);

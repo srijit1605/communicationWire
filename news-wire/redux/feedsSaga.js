@@ -6,7 +6,7 @@ import {
   createFeedStart,
   createFeedSuccess,
   createFeedFailure 
-} from './feedsSlice'; // Ensure the path is correct
+} from './feedsSlice';
 import axios from 'axios';
 
 // API URL
@@ -33,6 +33,6 @@ function* createFeed(action) {
 }
 
 export default function* feedsSaga() {
-  yield takeLatest(fetchFeedsStart.type, fetchFeeds);  // Use the correct action type
-  yield takeLatest(createFeedStart.type, createFeed);  // Use the correct action type
+  yield takeLatest(fetchFeedsStart.type, fetchFeeds);  
+  yield takeLatest(createFeedStart.type, createFeed); 
 }
