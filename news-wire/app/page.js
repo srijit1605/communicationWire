@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import LeftHandWidget from "@/components/LeftHandWidgets/LeftHandWidget";
 import RightHandWidget from "@/components/RightHandWidgets/RightHandWidget";
 import BottomWidget from "@/components/BottomWidgets/BottomWidget";
+import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdownMenu";
 
 export default function Home() {
   const [data, setData] = useState('')
@@ -38,6 +39,7 @@ useEffect(() => {
   
   return (
     <div className={styles.main}>
+      <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div>
       <Container className={styles.heroContainerAlignment}>
         <Row className={styles.rowGutter}>
           <Col className={styles.heroLeftHighlights}><LeftHighlights/></Col>
