@@ -1,8 +1,8 @@
 import React from 'react'
 
-const page = () => {
+const page = ({params}) => {
   return (
-    <div>Category page</div>
+    <div>{[params.category]} page. Excellent. we will set up these pages here.</div>
   )
 }
 
