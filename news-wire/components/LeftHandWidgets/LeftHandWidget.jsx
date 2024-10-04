@@ -58,7 +58,7 @@ const LeftHandWidget = () => {
         <SpotlightNews title={'Spotlight News'} articles={articles}/>
         <SnippetNews title={'Mini Updates'} articles={articles}/>
         <InternationalNews articles={articles}/>
-        <NewsCard/>
+        <NewsCard articles={articles}/>
         <NewsRow/>
     </div>
   )

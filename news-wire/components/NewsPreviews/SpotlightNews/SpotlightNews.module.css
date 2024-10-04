@@ -1,17 +1,18 @@
-.spolightBorder {
+.spotlightBorder {
     position: relative;
     border: 2px solid #191b1d;
-    padding: 10px;
+    padding: 10px 10px 0 ;
     margin-bottom: 10px;
+    z-index:5;
 }
 
-.spolightBorder::after {
+.spotlightBorder::after {
     position: absolute;
     content: '';
     display: block;
     inset: 2px;
     border: 1px solid #191b1d;
-    z-index: -1;
+    z-index: 4;
 }
 
 .sectionHeader {
@@ -24,8 +25,8 @@
     border-bottom: 4px solid #191b1d;
 }
 
-.spolightHeader {
-    padding: 5px;
+.spotlightHeader {
+    padding: 2px;
     border: none;
 }
 
@@ -42,9 +43,9 @@
 
 .spotlightNumber {
     display: flex;
-    gap: 5px;
     padding: 15px;
     border-bottom: 1px solid #e8e8e8;
+    min-width: 33.33%;
 }
 
 .spotlightNumber h2 {
