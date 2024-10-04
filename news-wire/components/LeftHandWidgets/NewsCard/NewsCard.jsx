@@ -1,8 +1,13 @@
 import React from 'react'
+import styles from './NewsCard.module.css'
+import SingleCard from './SingleCard/SingleCard'
 
-const NewsCard = () => {
+const NewsCard = ({articles}) => {
   return (
-    <div>NewsCard</div>
+    <div>
+      <div className={styles.headerSection}>{'Prime News'}</div>
+      <div className={styles.articleWrapper}>{articles.map((article) => <SingleCard article={article}/>)}</div>
+    </div>
   )
 }
 
