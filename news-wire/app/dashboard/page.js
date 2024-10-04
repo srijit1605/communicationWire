@@ -30,9 +30,8 @@ export default function Dashboard() {
       {/* You can display user info here */}
       <p>Logged in as: {session?.user?.email}</p>
       <div>
-        <div><Feedlist/></div>
+      <Feedlist/>
       <AddFeedForm />
-      
       </div>
     </div>
   );
