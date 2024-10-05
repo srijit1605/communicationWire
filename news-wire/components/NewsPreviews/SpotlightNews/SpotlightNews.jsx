@@ -9,7 +9,7 @@ const SpotlightNews = ({title='', articles=[]}) => {
     <div className={styles.spotlightBorder}>
       <div className={styles.spotlightHeader}>
       <h3 className={styles.sectionHeader}>{title}</h3>
-      <div className={styles.newsAlignment}>{articles.map((article, key)=> (
+      <div className={styles.newsAlignment}>{articles && articles.map((article, key)=> (
         <div key={key} className={styles.spotlightNumber}>
               <h2>{key+1}</h2>
               <h3>{article.title}</h3>

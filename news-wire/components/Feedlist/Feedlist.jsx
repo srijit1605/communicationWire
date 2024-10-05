@@ -2,12 +2,12 @@ import { Button } from 'react-bootstrap'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFeedsStart } from '@/redux/feedsSlice';
-import { fetchRSSTasksStart } from '@/redux/tasksSlice';
+import { fetchRSSTasksStart, scheduleTasksStart } from '@/redux/tasksSlice';
 
 const Feedlist = () => {
     const dispatch = useDispatch();
     const { feeds, loading, error } = useSelector((state) => state.feeds);
-    const { tasks, loader, err } = useSelector((state) => state.tasks);
+    const { tasks, articles, loader, err } = useSelector((state) => state.tasks);
     
     useEffect(() => {
         dispatch(fetchFeedsStart()); 
@@ -39,9 +39,12 @@ const Feedlist = () => {
         <div style={{display: 'flex', }}>
         <Button onClick={() => {
             dispatch(fetchRSSTasksStart(feed.id))
-            console.log(tasks)
+            console.log(JSON.parse(articles.data))
             }} style={{margin: '10px'}}>Fetch</Button>
-        <Button style={{margin: '10px'}}>Schedule</Button>
+        <Button onClick={() => {
+            dispatch(scheduleTasksStart(feed.id))
+            console.log(tasks)
+            }} style={{margin: '10px'}}>Schedule</Button>
         <Button style={{margin: '10px'}}>Update</Button>
         <Button style={{margin: '10px'}}>Delete</Button>
         </div>

@@ -8,10 +8,3 @@ export default function* rootSaga() {
     fork(tasksSaga),
   ]);
 }
-
-// export default function* rootSaga() {
-//   yield all([
-//     feedsSaga(),
-//     tasksSaga(),
-//   ]);
-// }

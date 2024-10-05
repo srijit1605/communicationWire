@@ -3,106 +3,29 @@ import React, { useState } from 'react'
 import styles from './RightWidget.module.css'
 import HeroOtherPreviews from '../../NewsPreviews/HeroOtherPreviews/HeroOtherPreviews'
 
-const articles = [{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    comments: '1',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    comments: '1',
-    categories: 'Technology'
-}]
-
-const trendingArticles = [{
-    title: 'News Trending Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-
-},
-{
-    title: 'News Trending Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-
-},
-{
-    title: 'News Trending Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-
-},
-{
-    title: 'News Trending Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-
-},
-{
-    title: 'News Trending Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    categories: 'Technology',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-
-}]
 
 
-const RightWidget = () => {
+const RightWidget = ({data}) => {
     const [trending, setTrending] = useState(false)
+    const articles = data && data.slice(5,10).map((item) => ({
+        title: item.title,
+        body: item.description,
+        author: item.creator,
+        date: item.published_date.slice(0,16),
+        comments: '1',
+        img: item.media,
+        categories: item.category
+    }))
+
+    const trendingArticles = data && data.slice(8,13).map((item) => ({
+        title: item.title,
+        body: item.description,
+        author: item.creator,
+        date: item.published_date.slice(0,16),
+        comments: '1',
+        img: item.media,
+        categories: item.category
+    }))
     
     return (
         <div className={styles.widgetStyle}>
@@ -116,7 +39,7 @@ const RightWidget = () => {
                     <h5 className={styles.tabButtonText}>Trending News</h5>
                 </div>    
             </div> 
-            <div>{trending? trendingArticles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />) : articles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />)}</div>
+            <div>{trending? trendingArticles && trendingArticles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />) : articles && articles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />)}</div>
 
         </div>
     )

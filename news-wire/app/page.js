@@ -17,18 +17,30 @@ import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdow
 
 export default function Home() {
   const [data, setData] = useState('')
+
+  const removeDuplicates = (data) => {
+    const seenTitles = new Set();
+    return data.filter((item) => {
+      if (seenTitles.has(item.title)) {
+        return false;
+      } else {
+        seenTitles.add(item.title);
+        return true;
+      }
+    });
+  };
+
   const getData = async() => {
     try {
-    const res = await axios.get('https://api.thenewsapi.com/v1/news/all', {params: {api_token: 'IeVvWwHdWDNuCEucM580XTsBhTzdeIZJKA6Sz550', language:'en', limit:3}})
-    console.log('response is:', res.data)
-    setData(res.data)
+    const res = await axios.get('http://localhost:8000/job-result')
+    const tempData = res.data.flat(1)
+    const duplicatesRemoved = removeDuplicates(tempData)
+    setData(duplicatesRemoved)
   }
   catch(err) {
     console.log(err)
   }
 }
-
-console.log('data is:', data)
 
 useEffect(() => {
   getData()
@@ -41,28 +53,28 @@ useEffect(() => {
       <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div>
       <Container className={styles.heroContainerAlignment}>
         <Row className={styles.rowGutter}>
-          <Col className={styles.heroLeftHighlights}><LeftHighlights/></Col>
+          <Col className={styles.heroLeftHighlights}><LeftHighlights data={data}/></Col>
           <Col xs={6} className={styles.heroFeatureSection}>
-          <HeroFeature/>
-          <FeatureRelated/>  
+          <HeroFeature datum = {data[0]}/>
+          <FeatureRelated data={data}/>  
           </Col>
           <Col className={styles.rightWidgetAlignment}>
-          <RightWidget/>
+          <RightWidget data={data}/>
           </Col>
         </Row>
 
         <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
-          <LeftHandWidget/>
+          <LeftHandWidget data={data}/>
           </Col>
           <Col sm={12} md={4}>
-          <RightHandWidget/>
+          <RightHandWidget data={data}/>
           </Col>
         </Row>
 
         <Row className={styles.rowGutter}>
           <Col>
-          <BottomWidget/>
+          <BottomWidget data={data}/>
           </Col>
         </Row>
       </Container>

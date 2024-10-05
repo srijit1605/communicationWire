@@ -4,60 +4,24 @@ import SnippetNews from '../NewsPreviews/SnippetNews/SnippetNews'
 import ImageSlider from './ImageSlider/ImageSlider'
 import SnippetTab from './SnippetTab/SnippetTab'
 
-const RightHandWidget = () => {
-  const articles = [{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
+const RightHandWidget = ({data}) => {
+  
+  const articles = data && data.map((item) => ({
+    title: item.title,
+    body: item.description,
+    author: item.creator,
+    date: item.published_date.slice(0,16),
     comments: '1',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    comments: '1',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    comments: '1',
-    categories: 'Technology'
-},
-{
-    title: 'News Article Title',
-    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
-    author: 'someone',
-    date: 'Sep 5 2024',
-    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
-    comments: '1',
-    categories: 'Technology'
-}]
-
+    img: item.media,
+    categories: item.category
+}))
 
   return (
     <div>
       <SnippetTab/>
       <ImageSlider/>
-      <SpotlightNews  title={'Fast Facts'} articles={articles}/>
-      <SnippetNews title={'Brief Bytes'} articles={articles} fulWidth/>
+      <SpotlightNews  title={'Fast Facts'} articles={articles.slice(3,7)}/>
+      <SnippetNews title={'Brief Bytes'} articles={articles.slice(0,5)} fulWidth/>
     </div>
   )
 }

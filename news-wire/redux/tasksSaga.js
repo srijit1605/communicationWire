@@ -5,8 +5,11 @@ import {
   fetchTasksFailure,
   fetchRSSTasksStart,
   fetchRSSTasksSuccess,
-  fetchRSSTasksFailure 
-} from './tasksSlice'; // Ensure the path is correct
+  fetchRSSTasksFailure,
+  scheduleTasksStart,
+  scheduleTasksSuccess, 
+  scheduleTasksFailure,
+} from './tasksSlice';
 import axios from 'axios';
 
 // API URL
@@ -18,6 +21,15 @@ function* fetchTasks() {
     yield put(fetchTasksSuccess(response.data));
   } catch (error) {
     yield put(fetchTasksFailure(error.message));
+  }
+}
+
+function* scheduleTasks(action) {
+  try {
+    const response = yield call(axios.post, `${API_URL}/schedule_task/${action.payload}`);
+    yield put(scheduleTasksSuccess(response.data));
+  } catch (error) {
+    yield put(scheduleTasksFailure(error.message));
   }
 }
 
@@ -33,4 +45,5 @@ function* fetchRSSTasks(action) {
 export default function* tasksSaga() {
   yield takeLatest(fetchTasksStart.type, fetchTasks);
   yield takeLatest(fetchRSSTasksStart.type, fetchRSSTasks);
+  yield takeLatest(scheduleTasksStart.type, scheduleTasks);
 }
