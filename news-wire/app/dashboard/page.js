@@ -23,15 +23,17 @@ export default function Dashboard() {
     return <p>Loading...</p>;
   }
 
+  const admin = 'srijit16thmay@gmail.com'
+
   return (
     <div className={styles.main}>
-      <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div>
-      <h1>Welcome to your Dashboard</h1>
-      {/* You can display user info here */}
-      <p>Logged in as: {session?.user?.email}</p>
+      <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}></div>
+      <h1>Welcome {session?.user?.email == admin ? 'ADMIN' : null}</h1>
+      <ProfileDropdownMenu/>
+      
       <div>
       <Feedlist/>
-      <AddFeedForm />
+      {session?.user?.email == admin ? <AddFeedForm /> : null}
       </div>
     </div>
   );

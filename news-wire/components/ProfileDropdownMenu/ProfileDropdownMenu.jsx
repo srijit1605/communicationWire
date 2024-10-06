@@ -14,10 +14,12 @@ const ProfileDropdownMenu = () => {
   };
 
   if (status === 'authenticated') {
+    console.log(session.user)
     return (
       <Dropdown className={styles.profileDropdown}>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
-          {session.user.name || 'Profile'}
+          <img src={session.user?.image} width={'30 px'} style={{borderRadius: '50%'}}/>
+          {' '}{session.user.name || 'Profile'}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>

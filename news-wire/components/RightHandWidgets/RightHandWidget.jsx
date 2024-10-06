@@ -10,7 +10,7 @@ const RightHandWidget = ({data}) => {
     title: item.title,
     body: item.description,
     author: item.creator,
-    date: item.published_date.slice(0,16),
+    date: item.published_date?.slice(0,16),
     comments: '1',
     img: item.media,
     categories: item.category
@@ -18,7 +18,7 @@ const RightHandWidget = ({data}) => {
 
   return (
     <div>
-      <SnippetTab/>
+      <SnippetTab articles={articles.slice(5,10)} trendingArticles={articles.slice(8,13)}/>
       <ImageSlider/>
       <SpotlightNews  title={'Fast Facts'} articles={articles.slice(3,7)}/>
       <SnippetNews title={'Brief Bytes'} articles={articles.slice(0,5)} fulWidth/>

@@ -6,7 +6,7 @@ const HeroFeature = ({ datum }) => {
     title: datum?.title,
     body: datum?.description,
     author: datum?.creator,
-    date: datum?.published_date.slice(0, 16),
+    date: datum?.published_date?.slice(0, 16),
     comments: '1',
     img: datum?.media,
     categories: datum?.category

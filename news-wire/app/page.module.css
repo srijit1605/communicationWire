@@ -28,3 +28,7 @@
 .rowGutter {
   margin-bottom: 40px;
 }
+
+.dashboardHeader {
+  /* display: flex; */
+}

@@ -15,7 +15,7 @@ const HeroOtherPreviews = ({article, widget=false}) => {
             <img className={styles.newsDetailsIcon} src={'/static/img/speech-bubble.png'} height={widget? 12 : 13} alt='comment' title='Comment'/>
             <h6 className={widget? styles.newsDetailsWidget : styles.newsDetails}>{article.comments}</h6>
         </div>
-        <p className={styles.newsExcerpt}>{article.body.substring(0,100)}...</p>
+        <p className={styles.newsExcerpt}>{article.body?.substring(0,100)}...</p>
     </div>
   )
 }

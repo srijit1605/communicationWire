@@ -42,6 +42,18 @@ export default function Home() {
   }
 }
 
+const articles = data && data.map((item) => ({
+  title: item.title,
+  body: item.description,
+  author: item.creator,
+  date: item.published_date?.slice(0,16),
+  comments: '1',
+  img: item.media,
+  categories: item.category
+}))
+
+console.log(articles)
+
 useEffect(() => {
   getData()
 }, [])
@@ -50,12 +62,12 @@ useEffect(() => {
   
   return (
     <div className={styles.main}>
-      <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div>
+      {/* <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div> */}
       <Container className={styles.heroContainerAlignment}>
         <Row className={styles.rowGutter}>
           <Col className={styles.heroLeftHighlights}><LeftHighlights data={data}/></Col>
           <Col xs={6} className={styles.heroFeatureSection}>
-          <HeroFeature datum = {data[0]}/>
+          <HeroFeature datum = {data[data.length-1]}/>
           <FeatureRelated data={data}/>  
           </Col>
           <Col className={styles.rightWidgetAlignment}>

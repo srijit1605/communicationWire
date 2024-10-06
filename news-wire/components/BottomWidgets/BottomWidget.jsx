@@ -9,7 +9,7 @@ const BottomWidget = ({data}) => {
     title: item.title,
     body: item.description,
     author: item.creator,
-    date: item.published_date.slice(0,16),
+    date: item.published_date?.slice(0,16),
     comments: '1',
     img: item.media,
     categories: item.category
