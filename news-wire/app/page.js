@@ -52,7 +52,7 @@ const articles = data && data.map((item) => ({
   categories: item.category
 }))
 
-console.log(articles)
+console.log('articles:',articles)
 
 useEffect(() => {
   getData()

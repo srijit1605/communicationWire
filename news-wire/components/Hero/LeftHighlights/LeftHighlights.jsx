@@ -13,8 +13,6 @@ const LeftHighlights = ({data}) => {
         categories: item.category
     }))
 
-    console.log(articles)
-
   return (
     <div>
         {articles && articles.map((article, key) => <HeroOtherPreviews article={article} key={key}/>)}

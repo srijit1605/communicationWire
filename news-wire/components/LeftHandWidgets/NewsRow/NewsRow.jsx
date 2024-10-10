@@ -5,7 +5,7 @@ const NewsRow = ({articles}) => {
   return (
     <div className={styles.sectionAlignment}>
       <div className={styles.headerSection}>{'Featured News'}</div>
-      {articles?.map((article) => (
+      {articles && articles.map((article) => (
         <article className={styles.articleFormat}>
           <div className={styles.articleSection}><img className={styles.imageAlignment} src={article.img} alt={article.title}/></div>
           <div className={styles.articleSection}>
