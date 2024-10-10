@@ -23,7 +23,7 @@ const LeftHandWidget = ({data}) => {
         <SnippetNews title={'Mini Updates'} articles={articles.slice(3,7)}/>
         <InternationalNews articles={articles.slice(7,11)}/>
         <NewsCard articles={articles.slice(9,14)}/>
-        <NewsRow/>
+        <NewsRow articles={articles.slice(3,7)}/>
     </div>
   )
 }
