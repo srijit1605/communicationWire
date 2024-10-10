@@ -53,7 +53,7 @@ const BottomWidget = () => {
   return (
     <div>
         <SnippetNews  title={'Snippet News'} articles={articles}/>
-        <ImageCard/>
+        <ImageCard articles={articles}/>
         <SpotlightNews title={'Local News'} articles={articles}/>
     </div>
   )
