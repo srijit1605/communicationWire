@@ -5,7 +5,7 @@ import styles from "../page.module.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import LeftHandWidget from '@/components/LeftHandWidgets/LeftHandWidget';
+import CategoryLeftHandWidget from '@/components/CategoryLeftHandWidget/CategoryLeftHandWidget';
 import RightHandWidget from '@/components/RightHandWidgets/RightHandWidget';
 
 const page = () => {
@@ -14,7 +14,7 @@ const page = () => {
     <Container className={styles.heroContainerAlignment}>
     <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
-          <LeftHandWidget/>
+          <CategoryLeftHandWidget/>
           </Col>
           <Col sm={12} md={4}>
           <RightHandWidget/>
