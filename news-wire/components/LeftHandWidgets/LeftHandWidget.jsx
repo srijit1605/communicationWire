@@ -5,18 +5,8 @@ import InternationalNews from './InternationalNews/InternationalNews'
 import NewsCard from './NewsCard/NewsCard'
 import NewsRow from './NewsRow/NewsRow'
 
-const LeftHandWidget = ({data}) => {
-  
-  const articles = data && data.map((item) => ({
-    title: item.title,
-    body: item.description,
-    author: item.creator,
-    date: item.published_date?.slice(0,16),
-    comments: '1',
-    img: item.media,
-    categories: item.category
-}))
-
+const LeftHandWidget = ({articles}) => {
+ 
   return (
     <div>
         <SpotlightNews title={'Spotlight News'} articles={articles.slice(0,5)}/>

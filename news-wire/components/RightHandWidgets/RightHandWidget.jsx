@@ -4,18 +4,8 @@ import SnippetNews from '../NewsPreviews/SnippetNews/SnippetNews'
 import SnippetTab from './SnippetTab/SnippetTab'
 import ImageCard from '../BottomWidgets/ImageCard/ImageCard'
 
-const RightHandWidget = ({data}) => {
-  
-  const articles = data && data.map((item) => ({
-    title: item.title,
-    body: item.description,
-    author: item.creator,
-    date: item.published_date?.slice(0,16),
-    comments: '1',
-    img: item.media,
-    categories: item.category
-}))
-
+const RightHandWidget = ({articles}) => {
+ 
   return (
     <div>
       <SnippetTab articles={articles?.slice(5,10)} trendingArticles={articles?.slice(8,13)}/>

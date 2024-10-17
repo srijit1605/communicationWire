@@ -43,6 +43,7 @@ export default function Home() {
 }
 
 const articles = data && data.map((item) => ({
+  id: item.title.replace(/\s+/g, '-').toLowerCase(),
   title: item.title,
   body: item.description,
   author: item.creator,
@@ -57,39 +58,38 @@ console.log('articles:',articles)
 useEffect(() => {
   getData()
 }, [])
-
   
   
   return (
     <div className={styles.main}>
       {/* <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div> */}
-      <Container className={styles.heroContainerAlignment}>
+      {articles? (<Container className={styles.heroContainerAlignment}>
         <Row className={styles.rowGutter}>
-          <Col className={styles.heroLeftHighlights}><LeftHighlights data={articles}/></Col>
+          <Col className={styles.heroLeftHighlights}><LeftHighlights articles={articles}/></Col>
           <Col xs={6} className={styles.heroFeatureSection}>
-          <HeroFeature datum = {articles[articles.length-1]}/>
-          <FeatureRelated data={articles}/>   
+          <HeroFeature article = {articles[articles.length-1]}/>
+          <FeatureRelated articles={articles}/>   
           </Col>
           <Col className={styles.rightWidgetAlignment}>
-          <RightWidget data={articles}/>
+          <RightWidget articles={articles}/>
           </Col>
         </Row>
 
         <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
-          <LeftHandWidget data={articles}/>
+          <LeftHandWidget articles={articles}/>
           </Col>
           <Col sm={12} md={4}>
-          <RightHandWidget data={articles}/>
+          <RightHandWidget articles={articles}/>
           </Col>
         </Row>
 
         <Row className={styles.rowGutter}>
           <Col>
-          <BottomWidget data={articles}/>
+          <BottomWidget articles={articles}/>
           </Col>
         </Row>
-      </Container>
+      </Container>) : (<div>Loading...</div>)}
     </div>
   );
 }

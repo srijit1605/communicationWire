@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SnippetNews from '@/components/NewsPreviews/SnippetNews/SnippetNews';
+import Link from 'next/link';
 
 const InternationalNews = ({articles}) => {
   return (
@@ -24,8 +25,8 @@ const InternationalNews = ({articles}) => {
         <img className={styles.newsDetailsIcon} src={'/static/img/speech-bubble.png'} height={13} alt='comment' title='Comment' />
         <h6 className={styles.newsDetails}>{articles[0]?.comments}</h6>
       </div>
-        <p className={styles.newsExcerpt}>{articles[0]?.body.substring(0,100)}...</p>
-        <p className={styles.readFull}>Read Full article </p>
+        <p className={styles.newsExcerpt}>{articles[0]?.body?.substring(0,100)}...</p>
+        <Link className={styles.readFull} href={`/article/${articles[0]?.id}`} passHref>Read Full Article</Link>
           </div>
           </Col>
           <Col className={styles.colStyle}>

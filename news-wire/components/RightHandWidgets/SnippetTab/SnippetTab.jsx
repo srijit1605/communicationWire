@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styles from './SnippetTab.module.css'
 import SnippetNews from '@/components/NewsPreviews/SnippetNews/SnippetNews'
+// import { articles } from '@/app/helper'
+
+// const trendingArticles = articles.filter((article) => article?.categories == 'Trending')
 
 const SnippetTab = ({articles, trendingArticles}) => {
 

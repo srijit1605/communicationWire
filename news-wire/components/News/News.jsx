@@ -1,9 +1,7 @@
 import React from 'react'
-import styles from './HeroFeature.module.css'
-import { articles } from '@/app/helper'
-import Link from 'next/link'
+import styles from './News.module.css'
 
-const HeroFeature = ({ article }) => {
+const News = ({article}) => {
 
   return (
     <div className={styles.heroFeatureModule}>
@@ -19,12 +17,10 @@ const HeroFeature = ({ article }) => {
         <h6 className={styles.newsDetails}>{article?.comments}</h6>
       </div>
       <div className={styles.twoColumn}>
-        <p className={styles.newsExcerpt}>{article?.body?.substring(0,445)}</p>
-        
-        <Link className={styles.readFull} href={`/article/${article?.id}`} passHref>Read Full Article</Link>
+        <p className={styles.newsExcerpt}>{article?.body}</p>
       </div>
     </div>
   )
 }
 
-export default HeroFeature
+export default News

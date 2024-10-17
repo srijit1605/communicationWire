@@ -2,31 +2,15 @@
 import React, { useState } from 'react'
 import styles from './RightWidget.module.css'
 import HeroOtherPreviews from '../../NewsPreviews/HeroOtherPreviews/HeroOtherPreviews'
+import { articles } from '@/app/helper'
+
+// const trendingArticles = articles.filter((article) => article?.categories == 'Trending')
 
 
-
-const RightWidget = ({data}) => {
+const RightWidget = ({articles}) => {
     const [trending, setTrending] = useState(false)
-    const articles = data && data.slice(5,10).map((item) => ({
-        title: item.title,
-        body: item.description,
-        author: item.creator,
-        date: item.published_date.slice(0,16),
-        comments: '1',
-        img: item.media,
-        categories: item.category
-    }))
 
-    const trendingArticles = data && data.slice(8,13).map((item) => ({
-        title: item.title,
-        body: item.description,
-        author: item.creator,
-        date: item.published_date.slice(0,16),
-        comments: '1',
-        img: item.media,
-        categories: item.category
-    }))
-    
+    const trendingArticles = articles && articles.slice(8,13)
     return (
         <div className={styles.widgetStyle}>
             <div className={styles.tabButtons}>
@@ -39,7 +23,7 @@ const RightWidget = ({data}) => {
                     <h5 className={styles.tabButtonText}>Trending News</h5>
                 </div>    
             </div> 
-            <div>{trending? trendingArticles && trendingArticles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />) : articles && articles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />)}</div>
+            <div>{trending? trendingArticles && trendingArticles.map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />) : articles && articles.slice(5,10).map((article, key) => <HeroOtherPreviews widget={true} article={article} key={key} />)}</div>
 
         </div>
     )

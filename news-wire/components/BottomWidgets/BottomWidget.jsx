@@ -3,18 +3,7 @@ import SnippetNews from '../NewsPreviews/SnippetNews/SnippetNews'
 import SpotlightNews from '../NewsPreviews/SpotlightNews/SpotlightNews'
 import ImageCard from './ImageCard/ImageCard'
 
-const BottomWidget = ({data}) => {
-  
-  const articles = data && data.map((item) => ({
-    title: item.title,
-    body: item.description,
-    author: item.creator,
-    date: item.published_date?.slice(0,16),
-    comments: '1',
-    img: item.media,
-    categories: item.category
-}))
-
+const BottomWidget = ({articles}) => {
 
   return (
     <div>

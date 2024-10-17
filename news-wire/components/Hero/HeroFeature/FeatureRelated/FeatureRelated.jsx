@@ -2,16 +2,7 @@ import React from 'react'
 import styles from './FeatureRelated.module.css'
 import FeatureRelatedArticle from './FeatureRelatedArticle/FeatureRelatedArticle'
 
-const FeatureRelated = ({data}) => {
-    const articles = data && data.slice(1,4).map((item) => ({
-        title: item.title,
-        body: item.description,
-        author: item.creator,
-        date: item.published_date.slice(0,16),
-        comments: '1',
-        img: item.media,
-        categories: item.category
-    }))
+const FeatureRelated = ({articles}) => {
 
   return (
     <>
@@ -20,7 +11,7 @@ const FeatureRelated = ({data}) => {
         <h3 className={styles.relatedHeader}>Related Article</h3>
     </div>
     <div className={styles.relatedArticleSection}>
-        {articles && articles.map((article, key) => <FeatureRelatedArticle article={article} key={key} />)}
+        {articles && articles.slice(1,4).map((article, key) => <FeatureRelatedArticle article={article} key={key} />)}
     </div>
     </>
   )

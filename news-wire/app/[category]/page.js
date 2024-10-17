@@ -14,7 +14,7 @@ const page = ({params}) => {
     <Container className={styles.heroContainerAlignment}>
     <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
-          <CategoryLeftHandWidget/>
+          <CategoryLeftHandWidget category= {[params.category]}/>
           </Col>
           <Col sm={12} md={4}>
           <RightHandWidget/>
