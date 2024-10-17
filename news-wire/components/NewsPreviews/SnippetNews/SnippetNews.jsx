@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './SnippetNews.module.css'
+
+import Link from 'next/link'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +11,8 @@ const SnippetNews = ({ title, articles = [], fulWidth=false }) => {
     <div className={styles.sectionBorder}>
       {title ? <div className={styles.headerSection}>{title}</div> : null}
       <div className={styles.articleWrapper}>{articles && articles.map((article) => (
-        <div className={styles.articleLayout} style={fulWidth? {width: '100%'} : {maxWidth:'330.9px'}}>
+        
+    <Link className={styles.articleLayout} style={fulWidth? {width: '100%'} : {maxWidth:'330.9px'}} href={`/article/${article.id}`} passHref>
           <div className={styles.articleImageDiv}  style={{background:`url(${article.img})`, backgroundSize:'cover'}}></div>
           <div className={styles.articleDetails}>
             <h5 className={styles.articleHeader}>{article.title}</h5>
@@ -22,7 +25,7 @@ const SnippetNews = ({ title, articles = [], fulWidth=false }) => {
               <h6 className={styles.newsDetails}>{article.comments}</h6>
             </div>
           </div>
-        </div>
+        </Link>
       ))}</div>
     </div>
   )

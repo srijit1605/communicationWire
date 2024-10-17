@@ -31,7 +31,7 @@ const responsiveWidget = {
 
 const ImageCard = ({widget= false, articles}) => {
   return (
-    <div>
+    <div style={{margin: '10px 0'}}>
       <Carousel responsive={widget? responsiveWidget : responsive}>
         {articles && articles.map((article) => <SingleImageCard article={article}/>)}
       </Carousel>

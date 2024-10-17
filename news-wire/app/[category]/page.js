@@ -8,13 +8,13 @@ import Col from 'react-bootstrap/Col';
 import CategoryLeftHandWidget from '@/components/CategoryLeftHandWidget/CategoryLeftHandWidget';
 import RightHandWidget from '@/components/RightHandWidgets/RightHandWidget';
 
-const page = () => {
+const page = ({params}) => {
   return (
-    <div className={styles.main}>Category page
+    <div className={styles.main}>{[params.category]} page
     <Container className={styles.heroContainerAlignment}>
     <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
-          <CategoryLeftHandWidget/>
+          <CategoryLeftHandWidget category= {[params.category]}/>
           </Col>
           <Col sm={12} md={4}>
           <RightHandWidget/>

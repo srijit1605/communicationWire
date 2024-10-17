@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './NewsRow.module.css'
+import Link from 'next/link'
 
 const NewsRow = ({articles}) => {
   return (
@@ -20,7 +21,8 @@ const NewsRow = ({articles}) => {
         <h6 className={styles.newsDetails}>{article.comments}</h6>
       </div>
         <p className={styles.newsExcerpt}>{article.body.substring(0,100)}...</p>
-        <p className={styles.readFull}>Read Full article </p>
+        
+        <Link className={styles.readFull} href={`/article/${article.id}`} passHref>Read Full article.</Link>
           </div>
         </article>
       ))}

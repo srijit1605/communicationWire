@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './SingleCard.module.css'
+import Link from 'next/link'
 
 const SingleCard = ({article}) => {
   return (
@@ -19,7 +20,8 @@ const SingleCard = ({article}) => {
         <h6 className={styles.newsDetails}>{article.comments}</h6>
       </div>
         <p className={styles.newsExcerpt}>{article.body.substring(0,200)}...</p>
-        <p className={styles.readFull}>Read Full article </p>
+        
+        <Link className={styles.readFull} href={`/article/${article.id}`} passHref>Read Full article.</Link>
           </div>
       </div>
   )

@@ -1,8 +1,11 @@
 import React from 'react'
 import styles from './SingleImageCard.module.css'
+import Link from 'next/link'
 
 const SingleImageCard = ({article}) => {
   return (
+    
+    <Link style={{textDecoration: 'none'}} href={`/article/${article.id}`} passHref>
     <div style={{margin: '0 5px'}}>
       <div className={styles.cardWrapper} style={{backgroundImage:`url(${article.img})`}}>
       <h5 className={styles.cardCategory}>{article.categories}</h5>
@@ -17,6 +20,7 @@ const SingleImageCard = ({article}) => {
       </div>
     </div>
     </div>
+    </Link>
   )
 }
 
