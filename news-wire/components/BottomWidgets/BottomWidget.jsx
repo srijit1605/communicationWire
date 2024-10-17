@@ -19,7 +19,7 @@ const BottomWidget = ({data}) => {
   return (
     <div>
         <SnippetNews  title={'Snippet News'} articles={articles.slice(2,6)}/>
-        <ImageCard/>
+        <ImageCard articles={articles.slice(2,6)}/>
         <SpotlightNews title={'Local News'} articles={articles.slice(6,11)}/>
     </div>
   )

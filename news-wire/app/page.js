@@ -16,7 +16,7 @@ import BottomWidget from "@/components/BottomWidgets/BottomWidget";
 import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdownMenu";
 
 export default function Home() {
-  const [data, setData] = useState('')
+  const [data, setData] = useState([])
 
   const removeDuplicates = (data) => {
     const seenTitles = new Set();
@@ -65,28 +65,28 @@ useEffect(() => {
       {/* <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div> */}
       <Container className={styles.heroContainerAlignment}>
         <Row className={styles.rowGutter}>
-          <Col className={styles.heroLeftHighlights}><LeftHighlights data={data}/></Col>
+          <Col className={styles.heroLeftHighlights}><LeftHighlights data={articles}/></Col>
           <Col xs={6} className={styles.heroFeatureSection}>
-          <HeroFeature datum = {data[data.length-1]}/>
-          <FeatureRelated data={data}/>  
+          <HeroFeature datum = {articles[articles.length-1]}/>
+          <FeatureRelated data={articles}/>   
           </Col>
           <Col className={styles.rightWidgetAlignment}>
-          <RightWidget data={data}/>
+          <RightWidget data={articles}/>
           </Col>
         </Row>
 
         <Row className={styles.rowGutter}>
           <Col sm={12} md={8} >
-          <LeftHandWidget data={data}/>
+          <LeftHandWidget data={articles}/>
           </Col>
           <Col sm={12} md={4}>
-          <RightHandWidget data={data}/>
+          <RightHandWidget data={articles}/>
           </Col>
         </Row>
 
         <Row className={styles.rowGutter}>
           <Col>
-          <BottomWidget data={data}/>
+          <BottomWidget data={articles}/>
           </Col>
         </Row>
       </Container>
