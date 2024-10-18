@@ -4,10 +4,10 @@ import BreakingTicker from './BreakingTicker/BreakingTicker'
 import SocialTab from './SocialTab/SocialTab'
 import Navbar from './Navbar/Navbar'
 
-const Header = () => {
+const Header = ({articles=[]}) => {
     return (
         <div className={styles.headerAlignment}>
-            <BreakingTicker />
+            <BreakingTicker articles={articles}/>
             <SocialTab />
             <div className={styles.siteNameAlignment}>
                 <div className={styles.leftQuote}>

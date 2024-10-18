@@ -12,7 +12,8 @@ const breakingNewsList = [
   'Seventh breaking news of the day',
 ]
 
-const BreakingTicker = () => {
+const BreakingTicker = ({articles}) => {
+    console.log('articles', articles)
   return (
     <div className={styles.tickerRibbon}>
       <div className={styles.tickerBreakingText}><h3 className={styles.breakingText}>Breaking News</h3></div>
