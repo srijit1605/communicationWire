@@ -11,7 +11,7 @@ const Header = () => {
             <SocialTab />
             <div className={styles.siteNameAlignment}>
                 <div className={styles.leftQuote}>
-                    <p>"This is the quote to go on the left hand side of the header section"</p>
+                    <p>"This is just a change to bring back the habit."</p>
                     <p className={styles.quoteSpeaker}>- Srijit Ghosh</p>
                 </div>
                 <div className={styles.siteDescription}>

@@ -13,29 +13,12 @@ import { useEffect, useState } from "react";
 import LeftHandWidget from "@/components/LeftHandWidgets/LeftHandWidget";
 import RightHandWidget from "@/components/RightHandWidgets/RightHandWidget";
 import BottomWidget from "@/components/BottomWidgets/BottomWidget";
+import { articles } from '@/app/helper'
 import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdownMenu";
 
 export default function Home() {
-  const [data, setData] = useState('')
-  const getData = async() => {
-    try {
-    const res = await axios.get('https://api.thenewsapi.com/v1/news/all', {params: {api_token: 'IeVvWwHdWDNuCEucM580XTsBhTzdeIZJKA6Sz550', language:'en', limit:3}})
-    console.log('response is:', res.data)
-    setData(res.data)
-  }
-  catch(err) {
-    console.log(err)
-  }
-}
+  const [data, setData] = useState(articles)
 
-console.log('data is:', data)
-
-useEffect(() => {
-  getData()
-}, [])
-
-  
-  
   return (
     <div className={styles.main}>
       {/* <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div> */}

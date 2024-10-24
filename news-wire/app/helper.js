@@ -163,4 +163,101 @@ export const articles = [{
     categories: 'Business',
     img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
 
-}]
+},
+{
+    id: 17,
+    title: 'Other World News Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    comments: '1',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+    categories: 'World'
+},
+{
+    id: 18,
+    title: 'Politics News Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+    comments: '1',
+    categories: 'Politics'
+},
+{
+    id: 19,
+    title: 'World News Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+    comments: '1',
+    categories: 'World'
+},
+{
+    id: 20,
+    title: 'News Trending Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    comments: '1',
+    categories: 'Trending',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+
+},
+{
+    id: 21,
+    title: 'News Sports Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    comments: '1',
+    categories: 'Sports',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+
+},
+{
+    id: 22,
+    title: 'News Sports Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    comments: '1',
+    categories: 'Sports',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+
+},
+{
+    id: 23,
+    title: 'News Trending Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    comments: '1',
+    categories: 'Trending',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+
+},
+{
+    id: 24,
+    title: 'News Entertainment Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    comments: '1',
+    categories: 'Entertainment',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+
+},
+{
+    id: 25,
+    title: 'Other News Entertainment Article Title',
+    body: 'This is the body of the news article. This is only for test purposes. To Reiterate, this article, as should be pretty obvious by now, is not an actual news article.',
+    author: 'someone',
+    date: 'Sep 5 2024',
+    comments: '1',
+    categories: 'Entertainment',
+    img:'https://resize.indiatvnews.com/en/centered/oldbucket/1200_675/mainnational/Kolkata-s-iconi26054.jpg',
+
+},
+]
