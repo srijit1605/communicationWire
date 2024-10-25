@@ -19,7 +19,7 @@ const Header = () => {
                     <div className={styles.siteSubName}>News with credibility</div>
                 </div>
                 <div className={styles.rightQuote}>
-                    <p>"This is the quote to go on the right hand side of the header section"</p>
+                    <p>"This is also simply to keep the checkbox green"</p>
                     <p className={styles.quoteSpeaker}>- Srijit Ghosh</p>
                 </div>
             </div>

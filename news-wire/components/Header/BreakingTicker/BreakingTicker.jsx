@@ -9,7 +9,6 @@ const breakingNewsList = [
   'Fourth breaking news of the day',
   'Fifth breaking news of the day',
   'Sixth breaking news of the day',
-  'Seventh breaking news of the day',
 ]
 
 const BreakingTicker = () => {
