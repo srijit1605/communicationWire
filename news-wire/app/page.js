@@ -14,7 +14,7 @@ import LeftHandWidget from "@/components/LeftHandWidgets/LeftHandWidget";
 import RightHandWidget from "@/components/RightHandWidgets/RightHandWidget";
 import BottomWidget from "@/components/BottomWidgets/BottomWidget";
 import { articles } from '@/app/helper'
-import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdownMenu";
+// import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdownMenu";
 
 export default function Home() {
   const [data, setData] = useState(articles)
