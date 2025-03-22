@@ -22,9 +22,10 @@ export default function Dashboard() {
   return (
     <div className={styles.main}>
       <div style={{position: 'absolute', top: '250px', right: '40px', filter: 'drop-shadow(2px 2px 2px #666)'}}><ProfileDropdownMenu/></div>
-      <h1>Welcome to your Dashboard</h1>
+      <h1>Welcome to the Dashboard</h1>
       <p>Logged in as: {session?.user?.email}</p>
       <div>
+        <p>New features coming up. Stay tuned.</p>
       <Feedlist/>
       <AddFeedForm />
       </div>
