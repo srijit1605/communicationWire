@@ -13,11 +13,27 @@ import { useEffect, useState } from "react";
 import LeftHandWidget from "@/components/LeftHandWidgets/LeftHandWidget";
 import RightHandWidget from "@/components/RightHandWidgets/RightHandWidget";
 import BottomWidget from "@/components/BottomWidgets/BottomWidget";
-import { articles } from '@/app/helper'
+import { articles } from '@/app/helper';
+import { fetchAllTasksStart } from '@/redux/tasksSlice';
+import { useDispatch, useSelector } from "react-redux";
 // import ProfileDropdownMenu from "@/components/ProfileDropdownMenu/ProfileDropdownMenu";
 
 export default function Home() {
   const [data, setData] = useState(articles)
+  const dispatch = useDispatch();
+  const { tasks, loader, err } = useSelector((state) => state.tasks);
+      useEffect(() => {
+          dispatch(fetchAllTasksStart()); 
+        }, [dispatch]);
+        if (loader) {
+          return <div>Loading...</div>;
+        }
+  
+        if (err) {
+          return <div>Error: {err}</div>;
+        }
+  
+        console.log(tasks, 'lol')
 
   return (
     <div className={styles.main}>

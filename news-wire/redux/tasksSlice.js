@@ -32,6 +32,18 @@ const tasksSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    fetchAllTasksStart: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    fetchAllTasksSuccess: (state, action) => {
+      state.loading = false;
+      state.tasks = action.payload;
+    },
+    fetchAllTasksFailure: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
@@ -42,6 +54,9 @@ export const {
   fetchRSSTasksStart,
   fetchRSSTasksSuccess,
   fetchRSSTasksFailure,
+  fetchAllTasksStart,
+  fetchAllTasksSuccess,
+  fetchAllTasksFailure
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

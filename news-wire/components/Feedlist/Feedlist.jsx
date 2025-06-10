@@ -26,7 +26,7 @@ const Feedlist = () => {
       }
 
       if (err) {
-        return <div>Error: {error}</div>;
+        return <div>Error: {err}</div>;
       }
 
       console.log(feeds)
